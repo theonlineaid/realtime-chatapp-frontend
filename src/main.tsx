@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+// import App from './App.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -9,15 +9,13 @@ import "./index.css";
 import Register from './pages/Register.tsx';
 import Login from './pages/Login.tsx';
 import Home from './pages/Home.tsx';
+import { Toaster } from 'react-hot-toast';
+import { AuthContextProvider } from './contexts/AuthContext.tsx';
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
 
   {
-    path: "/home",
+    path: "/",
     element: <Home />,
   },
   {
@@ -32,6 +30,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
+    <Toaster />
   </React.StrictMode>,
 )

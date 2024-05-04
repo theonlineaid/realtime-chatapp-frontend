@@ -3,10 +3,15 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    //host: 'localhost',
-    host: '0.0.0.0',
-    port: 3000,
-  },
   plugins: [react()],
+
+  server: {
+    port: 3000,
+    // proxy: {
+    //   "/api": {
+    //     target: "http://localhost:5000/api/v1",
+    //     // changeOrigin: true
+    //   }
+    // }
+  },
 })
