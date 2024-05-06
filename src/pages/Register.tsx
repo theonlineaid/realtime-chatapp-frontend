@@ -21,7 +21,7 @@ export default function Register() {
         confirmPassword: "",
         gender: "",
     });
-    const { loading, register } = useRegister()
+    const { loading, register, userData } = useRegister()
     const navigate = useNavigate()
 
     const handleCheckboxChange = (gender: string) => {
@@ -31,6 +31,7 @@ export default function Register() {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         await register(inputs);
+        console.log(userData)
         navigate('/')
     };
 
