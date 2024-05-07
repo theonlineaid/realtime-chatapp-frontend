@@ -7,6 +7,9 @@ interface Conversation {
     name: string;
     // Add more properties as needed
     error: string;
+    _id: string;
+    profilePicture: string,
+    fullName: string
 }
 
 const useGetConversations = () => {
