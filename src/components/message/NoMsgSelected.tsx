@@ -2,7 +2,6 @@ import { TiMessages } from "react-icons/ti";
 import { useAuthContext } from "../../contexts/AuthContext";
 export default function NoMsgSelected() {
   const { authUser } = useAuthContext();
-  console.log(authUser);
 
   return (
     <div
