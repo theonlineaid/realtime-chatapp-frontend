@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 // Define types for the conversation data
-interface Conversation {
+export interface Conversation {
     id: string;
     name: string;
     // Add more properties as needed
