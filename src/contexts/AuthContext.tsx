@@ -1,14 +1,15 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-interface AuthUser {
+export interface AuthUser {
   // Define your AuthUser interface here based on the data structure
   // of your user object stored in localStorage
-  id: string;
+  _id: string;
   userName: string | null;
+  profilePicture: string | null;
   // Add other properties as needed
 }
 
-interface AuthContextType {
+export interface AuthContextType {
   authUser: AuthUser | null;
   setAuthUser: (user: AuthUser | null) => void;
 }
