@@ -2,21 +2,36 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useConversation from "../zustan/useConversation";
 
-const useGetMessages = () => {
-    const [loading, setLoading] = useState(false);
+interface Message {
+    senderId: string;
+    createdAt: string;
+    message: string;
+    shouldShake: boolean;
+    newMessage: any
+}
+
+interface UseGetMessagesResult {
+    messages: Message[];
+    loading: boolean;
+}
+
+const useGetMessages = (): UseGetMessagesResult => {
+    const [loading, setLoading] = useState<boolean>(false);
     const { messages, setMessages, selectedConversation } = useConversation();
+
+    console.log(selectedConversation?._id)
 
     useEffect(() => {
         const getMessages = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`http://localhost:5000/api/v1/messages/${selectedConversation._id}`, {
+                const res = await fetch(`http://localhost:5000/api/v1/messages/${selectedConversation?._id}`, {
                     headers: {
                         "Content-Type": "application/json",
                     },
                     credentials: "include", // Include credentials in the request
                 });
-                
+
                 const data = await res.json();
                 if (data.error) throw new Error(data.error);
                 setMessages(data);
@@ -32,4 +47,5 @@ const useGetMessages = () => {
 
     return { messages, loading };
 };
+
 export default useGetMessages;
