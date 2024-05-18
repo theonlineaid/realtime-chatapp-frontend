@@ -19,8 +19,6 @@ const useGetMessages = (): UseGetMessagesResult => {
     const [loading, setLoading] = useState<boolean>(false);
     const { messages, setMessages, selectedConversation } = useConversation();
 
-    console.log(selectedConversation?._id)
-
     useEffect(() => {
         const getMessages = async () => {
             setLoading(true);

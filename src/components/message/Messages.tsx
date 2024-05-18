@@ -14,19 +14,10 @@ export default function Messages() {
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
   const { selectedConversation } = useConversation();
 
-  // const [getNewMessage, setGetNewMessage] = useState()
-
-
   const fromMe = messages.some(message => message.senderId === authUser?._id);
   const chatClassName: string = fromMe ? "chat-end" : "chat-start";
   const profilePic: string | undefined = fromMe ? authUser?.profilePicture : selectedConversation?.profilePicture;
   const bubbleBgColor: string = fromMe ? "bg-blue-500" : "";
-
-  // useEffect(() => {
-    setTimeout(() => {
-      console.log(messages[messages.length - 1].newMessage)
-    }, 1000)
-  // }, [getNewMessage, messages])
 
 
   useEffect(() => {
