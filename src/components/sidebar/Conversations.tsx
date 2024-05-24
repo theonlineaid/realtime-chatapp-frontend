@@ -2,7 +2,7 @@ import useGetConversations from "../../hooks/useGetConversations";
 import { getRandomEmoji } from "../../utils/RandomEmoji";
 import SingleConversation from "./SingleConversation";
 
-export default function Convertations() {
+export default function Conversations() {
   const { loading, conversations } = useGetConversations();
   // console.log(conversations);
   return (
