@@ -7,7 +7,7 @@ interface Message {
     createdAt: string;
     message: string;
     shouldShake: boolean;
-    newMessage: any
+    _id: string;
 }
 
 interface UseGetMessagesResult {
