@@ -27,8 +27,6 @@ const Message: React.FC<MessageProps> = ({ message }) => {
 
   const shakeClass = message.shouldShake ? "shake" : "";
 
-  console.log(fromMe)
-
   return (
     <div className={`chat ${chatClassName}`}>
       <div className="chat-image avatar">
