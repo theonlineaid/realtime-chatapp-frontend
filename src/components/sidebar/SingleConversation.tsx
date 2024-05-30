@@ -1,3 +1,4 @@
+import { useSocketContext } from "../../contexts/SocketContext";
 import { Conversation } from "../../hooks/useGetConversations";
 import useConversation from "../../zustan/useConversation";
 
@@ -15,8 +16,10 @@ export default function SingleConversation({
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   const isSelected = selectedConversation?._id === conversation._id;
-  // const { onlineUsers } = useSocketContext();
-  // const isOnline = onlineUsers.includes(conversation._id);
+  const { onlineUsers } = useSocketContext();
+  const isOnline = onlineUsers.includes(conversation._id);
+
+  console.log(isOnline)
 
   return (
     <>
@@ -26,7 +29,7 @@ export default function SingleConversation({
       `}
         onClick={() => setSelectedConversation(conversation)}
       >
-        <div className={`avatar online`}>
+        <div className={`avatar ${isOnline ? "online": ""}`}>
           <div className="w-12 rounded-full">
             <img src={conversation.profilePicture} alt="user avatar" />
           </div>

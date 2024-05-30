@@ -6,7 +6,6 @@ export interface AuthUser {
   _id: string;
   userName: string | null;
   profilePicture: string | null;
-  // Add other properties as needed
 }
 
 export interface AuthContextType {
